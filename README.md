@@ -118,6 +118,33 @@ help.start()
 Now you can go to `/custom/foo` to interact with the `my_handler_foo` and `/custom/bar` to interact with the `my_handler_bar`.
 This approach is actually used in [Rook](https://cran.r-project.org/web/packages/Rook/index.html) and [xfun](https://cran.r-project.org/web/packages/xfun/index.html).
 
+## Alternatives
+
+To serve static pages, you can use:
+
+### Rserve
+
+```r
+Rserve:::Rserve.http.add.static("","",last=TRUE)
+Rserve::run.Rserve(http.port=8080, qap=FALSE)
+```
+
+as suggested by Simon Urbanek on the _R devel_ mailing list:
+
+> (prefix="" means all paths will be served by the static server, path="" means everything is relative to the current directory and last=TRUE means you don’t want to proceed to other static mappings or the R handler, http.port sets the port you want the HTTP server to listen on, qap=FALSE disables the otherwise default QAP protocol which you don’t use).
+> See Rserve documentation for additional options (e.g. TLS/SSL support, binding to all interfaces etc.). The static handlers are experimental and undocumented, but can be given more love if people like them 🙂.
+
+The big issue I have here is that traditionally, `/` of a website is redirected to `index.html`, which isn't the case in here.
+This will cause links that assume this redirection to break.
+
+### httpuv and servr
+
+[servr](https://cran.r-project.org/web/packages/servr/index.html) implements a static HTTP server on top of [httpuv](https://cran.r-project.org/web/packages/httpuv/index.html)-
+
+```r
+servr::httd()
+```
+
 ## History
 
 This approach is not new and attempts to use the internal R server are quite old.
