@@ -133,11 +133,11 @@ which is a quite complex tooling, much more powerful than a simple http server.
 [sinartra](https://github.com/hadley/sinartra) is written by Hadley Wickham to write a web framework.
 It was more of a toy project and didn't include an actual connection with the web server.
 
-This was then plugged in a [separate project](https://github.com/jeffreyhorner/sinartra_example) by Jeffry Horner.
+This was then plugged in a [separate project](https://github.com/jeffreyhorner/sinartra_example) by Jeffrey Horner.
 
 ### Rook
 
-Probably based on the experiene with sinartra, Jeffry Horner then wrote [Rook](https://github.com/evanbiederstedt/Rook/),
+Probably based on the experiene with sinartra, Jeffrey Horner then wrote [Rook](https://github.com/evanbiederstedt/Rook/),
 which is fully fledged web api that allows plugging into an internal web server.
 
 ### webutils
